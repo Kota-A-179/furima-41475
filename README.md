@@ -4,7 +4,7 @@
 
 | Column             | Type   | Options                 |
 | ------------------ | ------ | ----------------------- |
-| nickname           | string | null:false, unique:true |
+| nickname           | string | null:false              |
 | email              | string | null:false, unique:true |
 | encrypted_password | string | null:false              |
 | last_name          | string | null:false              |
@@ -20,17 +20,17 @@
 
 ## items テーブル
 
-| Column        | Type       | Options                      |
-| ------------- | ---------- | ---------------------------- |
-| name          | string     | null:false                   |
-| content       | text       | null:false                   |
-| category      | string     | null:false                   |
-| condition     | string     | null:false                   |
-| expense       | string     | null:false                   |
-| source        | string     | null:false                   |
-| shipping_date | string     | null:false                   |
-| price         | integer    | null:false                   |
-| user_id       | references | null:false, foreign_key:true |
+| Column           | Type       | Options                      |
+| ---------------- | ---------- | ---------------------------- |
+| name             | string     | null:false                   |
+| content          | text       | null:false                   |
+| category_id      | integer    | null:false                   |
+| condition_id     | integer    | null:false                   |
+| expense_id       | integer    | null:false                   |
+| prefecture_id    | integer    | null:false                   |
+| shipping_date_id | integer    | null:false                   |
+| price            | integer    | null:false                   |
+| user             | references | null:false, foreign_key:true |
 
 ### Association
 
@@ -39,10 +39,10 @@
 
 ## purchases テーブル
 
-| Column  | Type       | Options                      |
-| ------- | ---------- | ---------------------------- |
-| item_id | references | null:false, foreign_key:true |
-| user_id | references | null:false, foreign_key:true |
+| Column | Type       | Options                      |
+| ------ | ---------- | ---------------------------- |
+| item   | references | null:false, foreign_key:true |
+| user   | references | null:false, foreign_key:true |
 
 ### Association
 
@@ -52,14 +52,14 @@
 
 ## addresses テーブル
 
-| Column      | Type       | Options                      |
-| ----------- | ---------- | ---------------------------- |
-| post_code   | string     | null:false                   |
-| prefecture  | string     | null:false                   |
-| city        | string     | null:false                   |
-| block       | string     | null:false                   |
-| building    | string     |                              |
-| purchase_id | references | null:false, foreign_key:true |
+| Column        | Type       | Options                      |
+| ------------- | ---------- | ---------------------------- |
+| post_code     | string     | null:false                   |
+| prefecture_id | integer    | null:false                   |
+| city          | string     | null:false                   |
+| block         | string     | null:false                   |
+| building      | string     |                              |
+| purchase      | references | null:false, foreign_key:true |
 
 ### Association
 
