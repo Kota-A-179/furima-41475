@@ -35,7 +35,7 @@
 ### Association
 
 - belongs_to :user
-- has_one :purchases
+- has_one :purchase
 
 ## purchases テーブル
 
@@ -59,6 +59,7 @@
 | city          | string     | null:false                   |
 | block         | string     | null:false                   |
 | building      | string     |                              |
+| phone_number  | string     | null:false                   |
 | purchase      | references | null:false, foreign_key:true |
 
 ### Association
