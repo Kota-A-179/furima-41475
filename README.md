@@ -16,7 +16,7 @@
 ### Association
 
 - has_many :items
-- has_many :addresses
+- has_many :purchases
 
 ## items テーブル
 
@@ -35,21 +35,32 @@
 ### Association
 
 - belongs_to :user
-- has_one :address
+- has_one :purchases
 
-## addresses テーブル
+## purchases テーブル
 
-| Column     | Type       | Options                      |
-| ---------- | ---------- | ---------------------------- |
-| post_code  | string     | null:false                   |
-| prefecture | string     | null:false                   |
-| city       | string     | null:false                   |
-| block      | string     | null:false                   |
-| building   | string     |                              |
-| item_id    | references | null:false, foreign_key:true |
-| user_id    | references | null:false, foreign_key:true |
+| Column  | Type       | Options                      |
+| ------- | ---------- | ---------------------------- |
+| item_id | references | null:false, foreign_key:true |
+| user_id | references | null:false, foreign_key:true |
 
 ### Association
 
 -belongs_to :item
 -belongs_to :user
+-has_one :address
+
+## addresses テーブル
+
+| Column      | Type       | Options                      |
+| ----------- | ---------- | ---------------------------- |
+| post_code   | string     | null:false                   |
+| prefecture  | string     | null:false                   |
+| city        | string     | null:false                   |
+| block       | string     | null:false                   |
+| building    | string     |                              |
+| purchase_id | references | null:false, foreign_key:true |
+
+### Association
+
+-belongs_to :purchase
