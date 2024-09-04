@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-         validates :password, format: {with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i, message: 'は英字と数字の両方を含んでください'}, if: -> {password.present? && password.length <= 129} 
+         validates :password, format: {with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i, message: 'は英字と数字の両方を含んでください'}, if: -> {password.present? && password.length <= 129 } 
 
     validates :nickname, presence: {message: "を入力してください"}
     validates :last_name, presence: {message: "を入力してください"}

@@ -77,30 +77,35 @@ RSpec.describe User, type: :model do
 
       it "passwordに改行が含まれていては登録できない" do
         @user.password = 'abc 123'
+        @user.password_confirmation = @user.password
         @user.valid?
-        expect(@user.errors.full_messages).to include("パスワード（確認用）とパスワードの入力が一致しません", "パスワードは英字と数字の両方を含んでください")
+        expect(@user.errors.full_messages).to include("パスワードは英字と数字の両方を含んでください")
       end
 
       it "passwordに全角が含まれていては登録できない" do
         @user.password = 'abc１２３'
+        @user.password_confirmation = @user.password
         @user.valid?
-        expect(@user.errors.full_messages).to include("パスワード（確認用）とパスワードの入力が一致しません", "パスワードは英字と数字の両方を含んでください")
+        expect(@user.errors.full_messages).to include("パスワードは英字と数字の両方を含んでください")
       end
 
       it "passwordに記号が含まれていては登録できない" do
         @user.password = 'abc-123'
+        @user.password_confirmation = @user.password
         @user.valid?
-        expect(@user.errors.full_messages).to include("パスワード（確認用）とパスワードの入力が一致しません", "パスワードは英字と数字の両方を含んでください")
+        expect(@user.errors.full_messages).to include("パスワードは英字と数字の両方を含んでください")
       end
 
       it "passwordに数字が含まれていなければ登録できない" do
         @user.password = 'abcefg'
+        @user.password_confirmation = @user.password
         @user.valid?
         expect(@user.errors.full_messages).to include("パスワードは英字と数字の両方を含んでください")
       end
 
       it "passwordに英字が含まれていなければ登録できない" do
         @user.password = '123456'
+        @user.password_confirmation = @user.password
         @user.valid?
         expect(@user.errors.full_messages).to include("パスワードは英字と数字の両方を含んでください")
       end
@@ -113,8 +118,9 @@ RSpec.describe User, type: :model do
 
       it 'passwordが129文字以上では登録できない' do
         @user.password = '0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'
+        @user.password_confirmation = @user.password
         @user.valid?
-        expect(@user.errors.full_messages).to include("パスワード（確認用）とパスワードの入力が一致しません", "パスワードは128文字以内で入力してください")
+        expect(@user.errors.full_messages).to include("パスワードは128文字以内で入力してください")
       end
 
       it "passwordとpassword_confirmationが不一致では登録できない" do
