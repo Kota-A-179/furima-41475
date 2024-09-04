@@ -13,6 +13,7 @@ module Furima41475
     config.i18n.default_locale = :ja
     config.time_zone = "Tokyo" 
     config.active_record.default_timezone = :local 
+    config.active_storage.variant_processor = :mini_magick
 
     # Configuration for the application, engines, and railties goes here.
     #
