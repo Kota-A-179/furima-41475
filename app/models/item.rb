@@ -1,4 +1,8 @@
 class Item < ApplicationRecord
+  belongs_to :user
+  has_one_attached :image
+
+  validates :image, presence: true
   validates :name, presence: true, length: { maximum: 40 }
   validates :content, presence: true, length: { maximum: 1000 }
   validates :category_id, presence: true
@@ -7,6 +11,6 @@ class Item < ApplicationRecord
   validates :prefecture_id, presence: true
   validates :shipping_date_id, presence: true
   validates :price, presence: true, numericality: { in: 300..9999999}
+  
 
-  belongs_to :user
 end
