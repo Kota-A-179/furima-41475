@@ -16,4 +16,6 @@ class User < ApplicationRecord
     validates :first_name, format: {with: /\A[あ-んア-ヶ一-龥々ー]+\z/, message: 'は全角かな/カナ・漢字で入力してください'}, if: -> {first_name.present?}
     validates :last_name_kana, format: {with: /\A[ア-ヶー]+\z/, message: 'は全角カタカナで入力してください'}, if: -> {last_name_kana.present?}
     validates :first_name_kana, format: {with: /\A[ア-ヶー]+\z/, message: 'は全角カタカナで入力してください'} , if: -> {first_name_kana.present?}
+
+    has_many :items
 end
