@@ -19,5 +19,5 @@ class Item < ApplicationRecord
   validates :shipping_date_id, presence: { message: "を入力してください" }, numericality: { other_than: 1, message: "を選択してください" }
   validates :price, presence: { message: "を入力してください" }
   validates :price, numericality: { in: 300..9999999, message: "は半角数字を用いて、300円～999万999円の範囲で設定してください"}, if: -> { price.present? }
-
+  
 end
