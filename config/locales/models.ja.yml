@@ -2,6 +2,7 @@ ja:
   activerecord:
     models:
       user: ユーザー
+      item: 商品
     attributes:
       user:
         id: ID
@@ -15,3 +16,14 @@ ja:
         birthday: 生年月日
         created_at: 作成日
         updated_at: 更新日
+      item:
+        id: ID
+        image: 商品画像
+        name: 商品名
+        content: 商品の説明
+        category_id: カテゴリー
+        condition_id: 商品の状態
+        expense_id: 配送料の負担
+        prefecture_id: 発送元の地域
+        shipping_date_id: 発送までの日数
+        price: 価格
