@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, only: [:new]
+  before_action :authenticate_user!, only: [:new, :edit]
   before_action :set_params, only: [:show, :edit, :update]
   def index
     @items = Item.order(created_at: :DESC).includes(:user)
@@ -22,6 +22,9 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    unless current_user.id == @item.user_id
+      redirect_to root_path
+    end
   end
 
   def update
