@@ -3,6 +3,8 @@ ja:
     models:
       user: ユーザー
       item: 商品
+      purchase: 購入記録
+      address: 配送先
     attributes:
       user:
         id: ID
@@ -27,3 +29,14 @@ ja:
         prefecture_id: 発送元の地域
         shipping_date_id: 発送までの日数
         price: 価格
+        user_id: ユーザーID
+      purchase:
+        item_id: 商品ID
+        user_id: ユーザーID
+      address:
+        post_code: 郵便番号
+        prefecture_id: 都道府県
+        city: 市区町村
+        block: 番地
+        building: 建物名
+        phone_number: 電話番号
