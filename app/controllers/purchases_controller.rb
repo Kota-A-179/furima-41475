@@ -3,7 +3,7 @@ class PurchasesController < ApplicationController
   before_action :set_item_params
 
   def index
-    if Purchase.find_by(item_id: @item.id).present?
+    if @item.purchase.present?
       redirect_to root_path
     elsif current_user.id == @item.user_id
       redirect_to root_path
