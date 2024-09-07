@@ -3,6 +3,7 @@ class PurchaseAddress
   attr_accessor :item_id, :user_id, :post_code, :prefecture_id, :city, :block, :building, :phone_number, :purchase_id, :token
 
   with_options presence: true do
+    validates :token
     validates :item_id
     validates :user_id
     validates :post_code
@@ -10,7 +11,6 @@ class PurchaseAddress
     validates :city
     validates :block
     validates :phone_number
-    validates :token
   end
 
   validates :post_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: "は半角数字でハイフン(-)を含めて入力してください" }, if: -> { post_code.present? }
