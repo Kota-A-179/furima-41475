@@ -2,6 +2,7 @@ class PurchasesController < ApplicationController
   before_action :set_item_params
 
   def index
+    gon.public_key = ENV["PAYJP_PUBLIC_KEY"]
     @purchase_address =PurchaseAddress.new
   end
 
