@@ -3,7 +3,7 @@ class PurchaseAddress
   attr_accessor :item_id, :user_id, :post_code, :prefecture_id, :city, :block, :building, :phone_number, :purchase_id, :token
 
   with_options presence: true do
-    validates :token
+    validates :token, presence: {message: "を正確に入力してください"}
     validates :item_id
     validates :user_id
     validates :post_code
