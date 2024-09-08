@@ -85,3 +85,5 @@ gem "devise-i18n"
 gem "mini_magick"
 gem "image_processing", '~> 1.2'
 gem "active_hash"
+gem 'payjp'
+gem 'gon'

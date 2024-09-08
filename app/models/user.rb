@@ -17,5 +17,6 @@ class User < ApplicationRecord
     validates :last_name_kana, format: {with: /\A[ア-ヶー]+\z/, message: 'は全角カタカナで入力してください'}, if: -> {last_name_kana.present?}
     validates :first_name_kana, format: {with: /\A[ア-ヶー]+\z/, message: 'は全角カタカナで入力してください'} , if: -> {first_name_kana.present?}
 
-    has_many :items
+    has_many :items, dependent: :destroy
+    has_many :purchases, dependent: :destroy
 end
