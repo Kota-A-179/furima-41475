@@ -1,4 +1,4 @@
-app_path = File.expand_path(/var/www/furima-41475)
+app_path = File.expand_path("/var/www/furima-41475")
 
 #アプリケーションサーバの性能を決定する
 worker_processes 1
